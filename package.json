@@ -1,0 +1,29 @@
+{
+    "name": "ether_backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/theDevSoham/ether_backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/theDevSoham/ether_backend/issues"
+    },
+    "homepage": "https://github.com/theDevSoham/ether_backend#readme",
+    "dependencies": {
+        "alchemy-sdk": "^2.7.0",
+        "body-parser": "^1.20.2",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}
