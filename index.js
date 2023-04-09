@@ -2,7 +2,7 @@ const express = require("express");
 const { Network, Alchemy, Wallet, Utils } = require("alchemy-sdk");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const { PRIVATE_KEY, API_KEY } = process.env;
 
 const app = express();
@@ -31,8 +31,8 @@ app.post("/send", async(req, res) => {
     const { to, value } = req.body;
 
     const transaction = {
-        to: "0x0B53E89cFD388f54A3683AAfc5974db4593B6641",
-        value: Utils.parseEther("0.001"),
+        to: to,
+        value: Utils.parseEther(typeof value === "string" ? value : "0"),
         gasLimit: "21000",
         maxPriorityFeePerGas: Utils.parseUnits("5", "gwei"),
         maxFeePerGas: Utils.parseUnits("20", "gwei"),
@@ -53,5 +53,5 @@ app.post("/send", async(req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at ${port}`);
 });
